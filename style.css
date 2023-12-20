@@ -1,0 +1,314 @@
+/* #region CSS RESET */
+
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* #endregion */
+
+/* #region CSS Variables */
+:root {
+  --font-family: "Oswald", Arial, Helvetica, sans-serif;
+  --dark-font-color: #222;
+  --light-font-color: #ddd;
+  --main-color: #E29F94;
+  --main-color-shadow: #D36E5F;
+  --second-color: #0C8C95;
+  --second-color-shadow: #096A71;
+  --highlight-color: #A6191F;
+
+  --first-background-gradient: linear-gradient(to bottom, var(--main-color), var(--main-color-shadow));
+  --second-background-gradient: linear-gradient(to bottom, var(--second-color), var(--second-color-shadow));
+  --button-gradient: linear-gradient(to left, var(--main-color), var(--second-color));
+}
+
+/* #endregion */
+
+/* #region Top Elements */
+
+.logo {
+  display: flex;
+  position: fixed;
+  width: 50px;
+  top: 25px;
+  left: 25px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  flex-direction: column;
+  line-height: 1.3rem;
+  z-index: 1;
+  transition: color 1.5s ease;
+}
+
+
+
+.socialIcons {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  font-size: 1.5rem;
+  gap: 10px;
+  left: 10px;
+  bottom: 20px;
+  z-index: 1;
+
+  transition: color 1.5s ease;
+}
+
+.socialIcons a {
+  color: inherit;
+}
+
+.color-white {
+  color: var(--light-font-color);
+}
+
+/* #endregion */
+
+/* #region Main Style*/
+
+body {
+  font-family: var(--font-family);
+  color: var(--dark-font-color);
+}
+
+@media (min-width: 900px) {
+  html {
+    font-size: 1.2rem;
+  }
+}
+
+/* #endregion */
+
+/* #region Section Apresentation */
+
+.apresentation {
+  display: flex;
+  background: var(--first-background-gradient);
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.headline {
+  line-height: 2.5rem;
+}
+
+.headline h1 {
+  font-size: 4rem;
+}
+
+.headline span {
+  font-weight: 300;
+}
+
+/* #endregion */
+
+/* #region Section About */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--light-font-color);
+  background: var(--second-background-gradient);
+  height: 100vh;
+}
+
+.about h1 {
+  font-size: 3rem;
+}
+
+.about p {
+  width: 80vw;
+  margin-top: 20px;
+}
+
+/* #endregion */
+
+/* #region Section Services */
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 75px 0;
+  background: var(--first-background-gradient);
+}
+
+.services h1 {
+  font-size: 3rem;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 225px;
+  height: 225px;
+  padding: 5px;
+
+  border: 1px dashed black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+.service-item p {
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 600px) {
+  .services-list {
+    flex-direction: row;
+  }
+}
+
+/* #endregion */
+
+/* #region Section Portfolio */
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--second-background-gradient);
+  height: 100vh;
+  color: var(--light-font-color);
+}
+
+.portfolio h1 {
+  font-size: 4rem;
+  margin-top: 50px;
+}
+
+.owl-carousel {
+  margin-bottom: 50px;
+}
+
+.owl-item img {
+  transition: 0.3s;
+  transform: scale(0.80);
+}
+
+.owl-item {
+  position: relative;
+}
+
+.owl-item button {
+  background: var(--button-gradient);
+  color: var(--light-font-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 20%;
+  border: 0;
+  border-radius: 30px;
+  opacity: 0;
+}
+
+.owl-stage {
+  max-height: 100%;
+}
+
+.owl-item button:hove {
+  opacity: 1;
+}
+
+.owl-item.center img {
+  transform: scale(1);
+}
+
+.owl-item.center a:hover:after {
+  position: absolute;
+  content: 'VEJA MAIS';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--button-gradient);
+  color: var(--light-font-color);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 15%;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.owl-item.center a:active:after {
+  width: 28%;
+  height: 14%;
+} 
+
+/* #endregion */
+
+/* #region Section Contact */
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--first-background-gradient);
+}
+
+.contact p {
+  width: 80vw;
+}
+
+.contact-headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-headline h1 {
+  font-size: 3rem;
+}
+
+.contact-headline p {
+  font-size: 1rem;
+}
+
+.contact-info > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.contact-info h2 {
+  font-size: 2rem;
+}
+
+.contact-info span {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 900px) {
+  .contact p {
+    width: 40vw;
+  }
+}
+
+/* #endregion */
